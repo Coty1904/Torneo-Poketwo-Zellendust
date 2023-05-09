@@ -180,7 +180,6 @@ a {
 
 .titulo-texto, .titulo-texto-llaves {
     margin: 32px;
-    margin-bottom: 128px;
     font-family: 'Comodore', monospace;
     font-size: 6rem;
     color: #6A4B00;
@@ -191,7 +190,6 @@ a {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /* flex-direction: row; */
     padding: 32px 0px;
     gap: 2rem;
     width: 100vw;
@@ -231,7 +229,7 @@ a {
     border-radius: 1rem;
     padding: 1rem;
     width: 35vw;
-    border: 5px #0075BE solid;
+    border: 3px #0075BE solid;
     height: fit-content;
     align-self: center;
 }
@@ -239,6 +237,79 @@ a {
 .container-inicio > .container-interno:last-child {
     border: none;
 }
+
+/* Acordeon */
+.wrapper {
+    width: max(65ch, 100% - 4rem);
+    margin-inline: auto;
+}
+
+.accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 500ms;
+    font-family: 'Share-Tech', monospace;
+    font-size: 1.5rem;
+    color: #A2ACBD;
+    width: 100%;
+}
+  
+.accordion-content[aria-hidden="false"] {
+    grid-template-rows: 1fr;
+}
+
+.accordion-content .horarios{
+    padding-left: 2rem;
+}
+
+.accordion-content > div {
+    overflow: hidden;
+}
+
+.accordion-content .lista{
+    padding-left: 3rem;
+}
+
+.accordion {
+    color: #3E4756;
+    padding: 1rem;
+}
+  
+.accordion-panel {
+    padding: 1rem;
+    border: 3px #0075BE solid;
+    background-image: linear-gradient(to right top, #324865, #2b5b79, #1d6e8a, #058196, #05959d);
+    border-radius: 8px;
+    margin-bottom: 4px;
+}
+
+.accordion-panel:first-child{
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.accordion-panel:last-child{
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.accordion h2 {
+    position: relative;
+    font-family: 'Comodore', monospace;
+    font-size: 3rem;
+    color: #3E4756;
+    padding-bottom: 1rem;
+    cursor: none;
+}
+
+.accordion-trigger {
+    background: transparent;
+    border: 0;
+    font: inherit;
+    color: inherit;
+    cursor: none;
+}
+  
 
 /* Reglamento */
 
@@ -384,7 +455,7 @@ footer {
 
     /* Version Mobil */
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 500px) {
 
     #trailer {
         display: none;
