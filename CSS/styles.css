@@ -180,18 +180,17 @@ a {
 
 .titulo-texto, .titulo-texto-llaves {
     margin: 32px;
-    margin-bottom: 128px;
     font-family: 'Comodore', monospace;
     font-size: 6rem;
     color: #6A4B00;
     align-self: center;
+    text-align: center;
 }
 
 .container-interno {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /* flex-direction: row; */
     padding: 32px 0px;
     gap: 2rem;
     width: 100vw;
@@ -231,7 +230,7 @@ a {
     border-radius: 1rem;
     padding: 1rem;
     width: 35vw;
-    border: 5px #0075BE solid;
+    border: 3px #0075BE solid;
     height: fit-content;
     align-self: center;
 }
@@ -240,28 +239,106 @@ a {
     border: none;
 }
 
+/* Acordeon */
+.wrapper {
+    width: max(65ch, 100% - 4rem);
+    margin-inline: auto;
+}
+
+.accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 500ms;
+    font-family: 'Share-Tech', monospace;
+    font-size: 1.5rem;
+    color: #A2ACBD;
+    width: 100%;
+}
+  
+.accordion-content[aria-hidden="false"] {
+    grid-template-rows: 1fr;
+}
+
+.accordion-content .horarios{
+    padding-left: 2rem;
+}
+
+.accordion-content > div {
+    overflow: hidden;
+}
+
+.accordion-content .lista{
+    padding-left: 3rem;
+}
+
+.accordion {
+    margin: 0;
+    color: #3E4756;
+    padding: 1rem;
+}
+  
+.accordion-panel {
+    padding: 1rem;
+    border: 3px #0075BE solid;
+    background-image: linear-gradient(to right top, #324865, #2b5b79, #1d6e8a, #058196, #05959d);
+    border-radius: 8px;
+    margin-bottom: 4px;
+}
+
+.accordion-panel:first-child{
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.accordion-panel:last-child{
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.accordion h2 {
+    position: relative;
+    font-family: 'Comodore', monospace;
+    font-size: 3rem;
+    color: #3E4756;
+    padding-bottom: 1rem;
+    cursor: none;
+}
+
+.accordion-trigger {
+    background: transparent;
+    border: 0;
+    font: inherit;
+    color: inherit;
+    cursor: none;
+}
+  
+
 /* Reglamento */
 
 .container-reglamento {
-    padding: 0 1rem;
+    padding: 0 3rem 0 3rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    color: #4D4637;
+}
+
+ul {
+    list-style-type: square
 }
 
 .titulo-reglas {
     padding: 3rem, 1rem, 3rem, 1rem;
     font-family: 'Space Mono', monospace;
-    font-size: 4rem;
+    font-size: 3rem;
     color: #402E32;
 }
 
 .reglas {
     font-family: 'Space Mono', monospace;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 900;
-    color: #A58E5C;
     padding-top: 1rem;
     padding-bottom: 2rem;
     text-align: justify;
@@ -270,7 +347,8 @@ a {
 .linea {
     background-image: linear-gradient(to right, #ff0505, #d20021, #a20028, #710b26, #42101d, #3e2131, #39303a, #3b3b3b, #676767, #979797, #cacaca, #ffffff);
     height: .3rem;
-    width: 100%;
+    width: 105%;
+    align-self: center;
 }
 
 /* Trofeo */
@@ -384,21 +462,35 @@ footer {
 
     /* Version Mobil */
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 700px) {
+    /*Mouse*/
+    *{
+        cursor: pointer;
+    }
 
     #trailer {
         display: none;
     }
 
+    /*Menu*/
     .header, .header-background {
         display: none;
     }
 
+    /*Inicio*/
     .container-inicio {
         display: flex;
         justify-content: center;
         align-items: center;
-        max-width: 100vw;
+        min-width: 100%;
+    }
+
+    .accordion .accordion-panel h2{
+        font-size: 7vw;
+    }
+
+    .accordion .accordion-panel p{
+        font-size: 4vw;
     }
 
     .container-interno {
@@ -408,7 +500,7 @@ footer {
     }
 
     .titulo-texto {
-        font-size: 3rem;
+        font-size: 12vw;
         text-align: center;
         margin: 16px;
     }
@@ -442,24 +534,19 @@ footer {
         font-size: 3rem;
     }
 
+    /*Reglas mobil*/
+
+    .container-reglamento{
+        margin: 0;
+        max-width: 100%;
+    }
+
     .titulo-reglas {
-        font-size: 2rem;
+        font-size: 9vw;
     }
 
     .reglas {
-        padding-bottom: 1rem;
-    }
-
-    .reglas li {
-        padding-bottom: 12px;
-    }
-
-    .subreglas li {
-        padding-bottom: 0;
-    }
-
-    .subreglas li:last-child{
-        padding-bottom: 12px;
+        font-size: 4.5vw;
     }
 
     .campeon {
@@ -472,6 +559,34 @@ footer {
 
     .container-llaves{
         height: 78.8vh;
+    }
+
+    .wrapper {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .accordion{
+        align-items: center;
+        width: 90%;
+        margin: 0;
+    }
+    /*Footer*/
+    footer{
+        max-width: 100%;
+        font-size: 5vw;
+    }
+
+    .discord{
+        width: 7vw;
+    }
+
+    .contacto{
+        font-size: 5vw;
     }
 }
     
@@ -497,6 +612,7 @@ footer {
     justify-content: center;
     gap: 45px;
     background-color: #A28F65;
+    z-index: 1;
 }
     
 .mob-list_item {
